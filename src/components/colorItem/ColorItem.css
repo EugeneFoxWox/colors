@@ -1,0 +1,11 @@
+.ColorItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.color-item{
+    height: 150px;
+    width: 40px;
+    background-color: aqua;
+}

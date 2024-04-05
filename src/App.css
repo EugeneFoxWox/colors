@@ -1,38 +1,65 @@
+
+
 .App {
-  text-align: center;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 10px
 }
+
+
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.switch-btn {
+  display: inline-block;
+  width: 72px; /* ширина */
+  height: 38px; /* высота */
+  border-radius: 19px; 
+  background: linear-gradient(to right, #7f7f7f 0, #bfbfbf 40%, #7fd03e 60%, #118c4e 100%);
+  background-size: 180px 100%;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  transition-duration: 300ms; 
+}
+.switch-btn::after {
+  content: "";
+  height: 32px; 
+  width: 32px; 
+  border-radius: 17px;
+  background: #fff; /* цвет кнопки */
+  top: 3px; 
+  left: 3px; 
+  transition-duration: 300ms; /* анимация */
+  position: absolute;
+  z-index: 1;
+}
+.switch-on {
+  background-position-x: -100px;
+}
+.switch-on::after {
+  left: 37px;
+}
+
+.color-picker{
+  display: "flex";
+  flex-direction: "column";
+  align-items: "center";
+  height: 200px;
+  width: 250px;
 }

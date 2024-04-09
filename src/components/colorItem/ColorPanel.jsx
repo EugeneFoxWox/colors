@@ -1,7 +1,7 @@
-import './ColorItem.css'
+import './ColorPanel.css'
 
 
-function ColorItem({id, color, isLock}){
+function ColorPanel({id, color, isLock}){
     return(
         <>
         <div className="color-item"></div>
@@ -13,4 +13,4 @@ function ColorItem({id, color, isLock}){
 
 }
 
-export default ColorItem;
+export default ColorPanel;

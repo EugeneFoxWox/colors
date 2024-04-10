@@ -8,26 +8,40 @@ import './App.css';
 
 
 function App() {
-  const { fcolor, generateColor } = useGenerateRandomColor();
+  const { fcolor: colorPrimary, generateColor: generatePrimary } = useGenerateRandomColor();
+  const { fcolor: colorSecondary, generateColor: generateSecodary } = useGenerateRandomColor();
+  const { fcolor: colorThirdary, generateColor: generateThirdary } = useGenerateRandomColor();
+  const { fcolor: colorFourthary, generateColor: generateFourthary } = useGenerateRandomColor();
+
   const [theme, setTheme] = useState('light');
   const [language, setLanguage] = useState('ru');
-
-    useEffect(() => {
-        // Применение выбранной темы при загрузке страницы
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-    };
-
-
   const [color, setColor] = useColor("hex", "#00FF00");
+
+
+  const handleGenerateAll = () => {
+    generatePrimary()
+    generateSecodary()
+    generateThirdary()
+    generateFourthary()
+  }
+
+  useEffect(() => {
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+
+
 
 
   return (
@@ -46,43 +60,43 @@ function App() {
           <div className='switch-title' >Тема</div>
           <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"} onClick={toggleTheme}></div>
         </div>
-        
-        <button></button>
+
+        <button>Экспорт</button>
       </header>
 
       <section className='select-color'>
         <div className='main-block-select'>
           <div className='palitre'>
-            <ColorPanel color={fcolor} onChange={setColor}></ColorPanel>
-            <ColorPanel color={fcolor}></ColorPanel>
-            <ColorPanel color={fcolor}></ColorPanel>
-            <ColorPanel color={fcolor}></ColorPanel>
+            <ColorPanel color={colorPrimary} onChange={setColor}></ColorPanel>
+            <ColorPanel color={colorSecondary} onChange={setColor}></ColorPanel>
+            <ColorPanel color={colorThirdary} onChange={setColor}></ColorPanel>
+            <ColorPanel color={colorFourthary} onChange={setColor}></ColorPanel>
           </div>
-            
 
-            <div className= "color-picker">
+
+          <div className="color-picker">
             <ColorPicker
-            width={600}
-            height={300}
-            color={color}
-            onChange={setColor}
-            hideHSV
-            dark
+              width={600}
+              height={300}
+              color={color}
+              onChange={setColor}
+              hideHSV
+              dark
             />
-            </div>
+          </div>
 
         </div>
-        <input title='ИМЯ' placeholder="Имя палитры" className='b' type="text"/>
-        <button className='button-generate' onClick={generateColor}>Сгенерировать!</button>
+        <input title='ИМЯ' placeholder="Имя палитры" className='name-pallete' type="text" />
+        <button className='button-generate' onClick={handleGenerateAll}>Сгенерировать!</button>
 
-         
+
         <div>
-        Здесь коллекция
+          Здесь коллекция
         </div>
 
       </section>
-      
-      
+
+
     </div>
   );
 }

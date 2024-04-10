@@ -43,6 +43,11 @@ body {
   flex-direction: row;
 }
 
+.palitre{
+  display: flex;
+  flex-direction: row;
+}
+
 .button-generate{
   width: 100px;
   height: 20px;

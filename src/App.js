@@ -1,12 +1,14 @@
-import ColorPanel from './components/colorItem/ColorPanel';
+import ColorPanel from './components/colorPanel/ColorPanel';
 import { useEffect, useState } from 'react';
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/dist/css/rcp.css";
+import useGenerateRandomColor from "./helpers/useGenerateRandomColor";
 
 import './App.css';
 
 
 function App() {
+  const { fcolor, generateColor } = useGenerateRandomColor();
   const [theme, setTheme] = useState('light');
   const [language, setLanguage] = useState('ru');
 
@@ -32,6 +34,10 @@ function App() {
     <div className={theme === 'dark' ? 'dark-theme App' : 'App'}>
       <header className="App-header">
         <div>
+          <img src=""></img>
+        </div>
+
+        <div>
           <div className='switch-title'>Язык</div>
           <div class="switch-btn switch-on"></div>
         </div>
@@ -41,11 +47,19 @@ function App() {
           <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"} onClick={toggleTheme}></div>
         </div>
         
+        <button></button>
       </header>
 
       <section className='select-color'>
         <div className='main-block-select'>
-            <ColorPanel></ColorPanel>
+          <div className='palitre'>
+            <ColorPanel color={fcolor} onChange={setColor}></ColorPanel>
+            <ColorPanel color={fcolor}></ColorPanel>
+            <ColorPanel color={fcolor}></ColorPanel>
+            <ColorPanel color={fcolor}></ColorPanel>
+          </div>
+            
+
             <div className= "color-picker">
             <ColorPicker
             width={600}
@@ -58,8 +72,8 @@ function App() {
             </div>
 
         </div>
-        
-        <button className='button-generate'>Сгенерировать!</button>
+        <input title='ИМЯ' placeholder="Имя палитры" className='b' type="text"/>
+        <button className='button-generate' onClick={generateColor}>Сгенерировать!</button>
 
          
         <div>

@@ -14,6 +14,7 @@ button {
   border-radius: 10%;
   background-color: rgb(53, 37, 155);
   color: #d0f2ff;
+  cursor: pointer;
 }
 
 .App.dark-theme {
@@ -32,6 +33,7 @@ button {
   background-color: #282c34;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100px;
   height: 1080px;
   font-size: calc(10px + 2vmin);
@@ -63,12 +65,7 @@ button {
   flex-direction: row;
 }
 
-.button-generate{
-  width: 100px;
-  height: 20px;
-  background-color: #61dafb;
-  border: none;
-}
+
 
 .App-link {
   color: #61dafb;
@@ -79,7 +76,6 @@ button {
   width: 46px; /* ширина */
   height: 26px; /* высота */
   border-radius: 19px; 
-  background:#77c1d6;
   background-size: 180px 100%;
   z-index: 0;
   margin: 0;

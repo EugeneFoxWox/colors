@@ -8,12 +8,14 @@ import ExampleMaket from './components/exampleMaket/ExampleMaket';
 
 function App() {
   const [colors, setColors] = useState({
-    primary: '',
-    secondary: '',
-    tertiary: '',
-    quaternary: '',
+    primary: '#1c3da0',
+    secondary: '#b73333',
+    tertiary: '#af3393',
+    quaternary: '#dae019',
   })
   
+
+  const gallery = 0;
   const [theme, setTheme] = useState('light');
 
   
@@ -48,12 +50,14 @@ function App() {
 
         <div>
           <div className='switch-title'>Язык</div>
-          <div class="switch-btn switch-on"></div>
+          <div class="switch-btn switch-on" style={{background: colors.secondary}}></div>
         </div>
 
         <div>
           <div className='switch-title' >Тема</div>
-          <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"} onClick={toggleTheme}></div>
+          <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"}
+           onClick={toggleTheme}
+           style={{background: colors.primary}}></div>
         </div>
 
         <button>Экспорт</button>

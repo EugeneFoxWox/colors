@@ -42,7 +42,7 @@ function ColorPanel({colors, setColors}) {
         )}
 
       </div>
-      <button onClick={handleRandomAll}>Сгенерировать</button>
+      <button className='button-generate' onClick={handleRandomAll}>Сгенерировать</button>
     </div>
       )
 }

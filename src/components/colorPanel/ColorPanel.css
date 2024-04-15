@@ -1,12 +1,18 @@
-.ColorPanel{
+.color-generate-box{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 
 }
-
+.color-panel{
+    display: flex;
+    justify-content: space-between;
+    gap: 3px
+}
 .color-item{
-    height: 150px;
-    width: 40px;
+    height: 250px;
+    width: 70px;
+    display: flex;
+    align-items: center;
     
 }

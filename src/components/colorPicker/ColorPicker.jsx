@@ -1,23 +1,14 @@
-import { ColorPicker, useColor } from "react-color-palette";
+import React, { useState } from 'react';
+import { ChromePicker } from "react-color";
 
-
-/*function ColorPick(){
-
-  const [color, setColor] = useColor("hex", "#00FF00");
+function ColorPicker({selectColor, changeColor}) {
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <ColorPicker
-        width={600}
-        height={400}
-        color={color}
-        onChange={setColor}
-        hideHSV
-        dark
-      />
-    </div>
+    <ChromePicker
+          color= {selectColor}
+          onChange={changeColor}
+    />
   );
+};
 
-}
-
-export default ColorPick;*/
+export default ColorPicker;

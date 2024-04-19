@@ -24,7 +24,7 @@ button {
 
 .App {
   display: flex;
-  
+  justify-content: space-between;
 }
 
 
@@ -53,6 +53,7 @@ button {
   align-items: center;
   margin-top: 120px;
   width: 750px;
+  gap: 20px
 }
 
 .main-block-select{
@@ -109,4 +110,18 @@ button {
 
   height: 100px;
   width: 300px;
+}
+
+.section-maket{
+  margin-top: 120px;
+  margin-right: 120px;
+}
+
+.collection{
+  display: flex;
+}
+
+.d{
+  width: 50px;
+  height: 50px;
 }

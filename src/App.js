@@ -3,8 +3,12 @@ import { useEffect, useState } from 'react';
 import "react-color-palette/dist/css/rcp.css";
 import { createContext, useContext } from 'react';
 import './App.css';
+import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import logo from './img/logocolor.svg';
 import ExampleMaket from './components/exampleMaket/ExampleMaket';
+import generateShadeColor from './helpers/generateShadeColor';
+
 
 function App() {
   const [colors, setColors] = useState({
@@ -15,12 +19,29 @@ function App() {
   })
   
 
-  const gallery = 0;
+  let extraColors = Object.entries(colors).map(([name, hex]) => {
+      return(
+        {
+          light: generateShadeColor(hex, 20),
+          normal: hex ,
+          dark: generateShadeColor(hex, -20)
+        }
+      )
+  }) 
+ 
+    
+    
+   
+  
+
+  
   const [theme, setTheme] = useState('light');
+  const [tab, setTab] = useState('');
 
   
 
-  const [language, setLanguage] = useState('ru');
+  
+  const { t } = useTranslation();
   
 
   useEffect(() => {
@@ -37,10 +58,14 @@ function App() {
     
   };
 
- 
+  const handleCopyToClipboard = (color) => {
+    navigator.clipboard.writeText(color)
+    toast.success('Успешно скопированное чудо ' + color)
 
 
+  }
 
+  
   return (
     <div className={theme === 'dark' ? 'dark-theme App' : 'App'}>
       <header className="App-header">
@@ -60,7 +85,7 @@ function App() {
            style={{background: colors.primary}}></div>
         </div>
 
-        <button>Экспорт</button>
+        <button>Сохранить</button>
       </header>
 
       <section className='select-color'>
@@ -73,14 +98,32 @@ function App() {
         </div>
         <input title='Имя палитры' placeholder="Имя палитры" className='name-pallete' type="text" />
         <button>Сохранить</button>
+        <hr></hr>
         
 
-        <div>
-          Здесь коллекция
+        <div className='collection'>
+
+      {extraColors.map((extra) => {
+        
+        return <div>
+          <div className='d' style={{background: extra.light}} onClick={() => handleCopyToClipboard(extra.light)}>{extra.light}</div>
+          <div className='d' style={{background: extra.normal}} onClick={() => handleCopyToClipboard(extra.normal)}>{extra.normal}</div>
+          <div className='d' style={{background: extra.dark}} onClick={() => handleCopyToClipboard(extra.dark)}>{extra.dark}</div>
+        </div>
+        
+      }
+        
+      )}
+        
+        
+        
         </div>
 
       </section>
       <section>
+        
+      </section>
+      <section className='section-maket'>
         <ExampleMaket 
           primary={colors.primary}
           secondary={colors.secondary}

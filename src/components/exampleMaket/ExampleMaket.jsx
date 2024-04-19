@@ -2,7 +2,7 @@ import "./ExampleMaket.css"
 function ExampleMaket({primary, secondary, tertiary, quaternary}) {
 
     return(
-    <div className="maket">
+    <div className="maket" style={{background: quaternary}}>
         <div className="header" style={{background: primary}}>
             <h1>Заголовок уровня 1</h1>
         </div>
@@ -17,6 +17,9 @@ function ExampleMaket({primary, secondary, tertiary, quaternary}) {
                     <li>Пункт 2</li>
                 </ul>
             </nav>
+        </div>
+        <div>
+        <code>const a = 123</code>
         </div>
     </div>
     );

@@ -1,8 +1,16 @@
 .maket{
     height: 650px;
     width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
 }
 
 .header{
     
+}
+
+nav{
+    margin-left: 25px;
 }

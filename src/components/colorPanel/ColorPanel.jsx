@@ -19,6 +19,9 @@ function ColorPanel({colors, setColors}) {
 
   return (
     <div className='color-generate-box'>
+      <section className='section-pallete'>
+
+     
       <div className='color-panel'>
 
         {Object.entries(colors).map(([name, hex]) => (
@@ -37,12 +40,16 @@ function ColorPanel({colors, setColors}) {
 
         ))}
 
-        {selectedColor && (
-          <ColorPicker selectColor={colors[selectedColor]} changeColor={handleChangeColor} />
-        )}
+        
 
       </div>
       <button className='button-generate' onClick={handleRandomAll}>Сгенерировать</button>
+      </section>
+      <section className='section-picker'>
+        {selectedColor && (
+          <ColorPicker selectColor={colors[selectedColor]} changeColor={handleChangeColor} />
+        )}
+      </section>
     </div>
       )
 }

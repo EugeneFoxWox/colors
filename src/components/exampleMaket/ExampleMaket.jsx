@@ -1,16 +1,16 @@
 import "./ExampleMaket.css"
-function ExampleMaket({primary, secondary, tertiary, quaternary}) {
+function ExampleMaket({extraColors}) {
 
     return(
-    <div className="maket" style={{background: quaternary}}>
-        <div className="header" style={{background: primary}}>
+    <div className="maket" style={{background: extraColors[3].light}}>
+        <div className="header" style={{background: extraColors[0].normal}}>
             <h1>Заголовок уровня 1</h1>
         </div>
         
         <p>Этот элемент содержит обычный текст.</p>
-        <button style={{background: secondary}}>Нажми меня</button>
-        <button style={{background: tertiary}}>Нажми меня</button>
-        <div className="block" style={{background: tertiary}}>Это блочный элемент, который может содержать другие элементы.
+        <button style={{background: extraColors[1].normal}}>Нажми меня</button>
+        <button style={{background: extraColors[1].dark}}>Нажми меня</button>
+        <div className="block" style={{background: extraColors[2].light}}>Это блочный элемент, который может содержать другие элементы.
             <nav>
                 <ul>
                     <li>Пункт 1</li>

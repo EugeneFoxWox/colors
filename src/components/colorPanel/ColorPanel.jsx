@@ -14,7 +14,7 @@ function ColorPanel({colors, setColors}) {
 
   const handleRandomAll = () => {
     setColors(generateRandomColor(colors))
-
+    
   }
 
   return (

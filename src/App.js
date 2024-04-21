@@ -1,9 +1,10 @@
 import ColorPanel from './components/colorPanel/ColorPanel';
+import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 import "react-color-palette/dist/css/rcp.css";
 import { createContext, useContext } from 'react';
 import './App.css';
-import toast from 'react-hot-toast';
+import CodePanel from './components/codePanel/CodePanel';
 import { useTranslation } from 'react-i18next';
 import logo from './img/logocolor.svg';
 import ExampleMaket from './components/exampleMaket/ExampleMaket';
@@ -31,9 +32,6 @@ function App() {
  
     
     
-   
-  
-
   
   const [theme, setTheme] = useState('light');
   const [tab, setTab] = useState('');
@@ -55,15 +53,10 @@ function App() {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    
+    console.log(extraColors)
   };
 
-  const handleCopyToClipboard = (color) => {
-    navigator.clipboard.writeText(color)
-    toast.success('Успешно скопированное чудо ' + color)
-
-
-  }
+  
 
   
   return (
@@ -96,40 +89,16 @@ function App() {
           </div>
 
         </div>
-        <input title='Имя палитры' placeholder="Имя палитры" className='name-pallete' type="text" />
-        <button>Сохранить</button>
-        <hr></hr>
-        
 
         <div className='collection'>
-
-      {extraColors.map((extra) => {
-        
-        return <div>
-          <div className='d' style={{background: extra.light}} onClick={() => handleCopyToClipboard(extra.light)}>{extra.light}</div>
-          <div className='d' style={{background: extra.normal}} onClick={() => handleCopyToClipboard(extra.normal)}>{extra.normal}</div>
-          <div className='d' style={{background: extra.dark}} onClick={() => handleCopyToClipboard(extra.dark)}>{extra.dark}</div>
-        </div>
-        
-      }
-        
-      )}
-        
-        
-        
+          <CodePanel extraColors={extraColors}></CodePanel>
         </div>
 
-      </section>
-      <section>
-        
       </section>
       <section className='section-maket'>
         <ExampleMaket 
-          primary={colors.primary}
-          secondary={colors.secondary}
-          tertiary={colors.tertiary}
-          quaternary={colors.quaternary}>
-
+          extraColors = {extraColors}>
+          
         </ExampleMaket>
       </section>
 

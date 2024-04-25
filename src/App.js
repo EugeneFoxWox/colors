@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import "react-color-palette/dist/css/rcp.css";
 import { createContext, useContext } from 'react';
 import './App.css';
+
 import CodePanel from './components/codePanel/CodePanel';
 import { useTranslation } from 'react-i18next';
 import logo from './img/logocolor.svg';
 import ExampleMaket from './components/exampleMaket/ExampleMaket';
 import generateShadeColor from './helpers/generateShadeColor';
+import i18next from 'i18next';
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
     
   
   const [theme, setTheme] = useState('light');
+  const [lng, setLng] = useState('ru');
   const [tab, setTab] = useState('');
 
   
@@ -53,8 +56,14 @@ function App() {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    console.log(extraColors)
+    
   };
+
+  const changeLng = () => {
+    const newLng = lng === 'ru' ? 'en' : 'ru';
+    i18next.changeLanguage(newLng)
+    setLng(newLng);
+  }
 
   
 
@@ -67,18 +76,19 @@ function App() {
         </div>
 
         <div>
-          <div className='switch-title'>Язык</div>
-          <div class="switch-btn switch-on" style={{background: colors.secondary}}></div>
+          <div className='switch-title'>{t('lng')}</div>
+          <div class={lng === 'en' ? "switch-btn switch-on::after" : "switch-btn switch-on"} style={{background: colors.secondary}}
+        onClick={changeLng}></div>
         </div>
 
         <div>
-          <div className='switch-title' >Тема</div>
+          <div className='switch-title' >{t('theme')}</div>
           <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"}
            onClick={toggleTheme}
            style={{background: colors.primary}}></div>
         </div>
 
-        <button>Сохранить</button>
+        <button>{t('bt-save')}</button>
       </header>
 
       <section className='select-color'>
@@ -106,5 +116,6 @@ function App() {
     </div>
   );
 }
-
 export default App;
+
+

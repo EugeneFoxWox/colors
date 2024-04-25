@@ -3,8 +3,11 @@ import { useState } from 'react';
 import cn from 'classnames'
 import generateRandomColor from "../../helpers/generateRandomColor";
 import ColorPicker from '../colorPicker/ColorPicker';
+import { useTranslation } from 'react-i18next';
 
 function ColorPanel({colors, setColors}) {
+
+  const { t } = useTranslation();
 
   const [selectedColor, setSelectedColor] = useState(null)
 
@@ -43,7 +46,7 @@ function ColorPanel({colors, setColors}) {
         
 
       </div>
-      <button className='button-generate' onClick={handleRandomAll}>Сгенерировать</button>
+      <button className='button-generate' onClick={handleRandomAll}>{t('bt-generate')}</button>
       </section>
       <section className='section-picker'>
         {selectedColor && (

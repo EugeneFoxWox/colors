@@ -4,12 +4,12 @@ import './CodePanel.css'
 function CodePanel({extraColors}) {
 
    let copyJS = ""
+   
 
    const handleCopyToClipboard = (color) => {
       navigator.clipboard.writeText(color)
       toast.success('Успешно скопированное чудо ' + color)
     }
-
       
         return <div className='shade-palette'> {extraColors.map((extra) => {
 
@@ -32,7 +32,7 @@ function CodePanel({extraColors}) {
             </div>
         </div>
          <div>
-         {copyJS = "extraColors = {" + extraColors[extra] + "}"}
+         {copyJS = "extraColors = {" + extra + "}"}
          </div>
         </div>
         

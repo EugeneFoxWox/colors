@@ -1,16 +1,51 @@
 .maket{
     height: 650px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    width: 400px;
     border-radius: 10px;
 }
 
+.content-maket{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.button-block{
+    display: flex;
+    gap: 10px;
+}
+
+.radio-block{
+    display: flex;
+    gap: 10px;
+}
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: 0.2s all linear;
+    border-radius: 50%;
+    outline: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid white;
+
+}
+
+input:checked {
+    border: 4px solid;
+  }
+
 .header{
-    
+    padding: 10px;
 }
 
 nav{
     margin-left: 25px;
+}
+
+button{
+    width: 100px;
 }

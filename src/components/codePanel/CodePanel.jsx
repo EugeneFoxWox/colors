@@ -3,12 +3,13 @@ import './CodePanel.css'
 
 function CodePanel({extraColors}) {
 
-   let copyJS = ""
+   let copyJS = `{/nprimary:`
+ 
    
 
    const handleCopyToClipboard = (color) => {
       navigator.clipboard.writeText(color)
-      toast.success('Успешно скопированное чудо ' + color)
+      toast.success('Успешно скопировано ' + color)
     }
       
         return <div className='shade-palette'> {extraColors.map((extra) => {
@@ -31,15 +32,16 @@ function CodePanel({extraColors}) {
                <p>{extra.dark}</p>
             </div>
         </div>
-         <div>
-         {copyJS = "extraColors = {" + extra + "}"}
+         <code id= 'js-code' className='js-code'>{`/nprimary:`}</code>
+         
          </div>
-        </div>
+        
         
         
       }
     )}
     </div>
+
 
 
 }

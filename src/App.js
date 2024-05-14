@@ -7,7 +7,7 @@ import './App.css';
 
 import CodePanel from './components/codePanel/CodePanel';
 import { useTranslation } from 'react-i18next';
-import logo from './img/logocolor.svg';
+import logo from './img/logo.png';
 import ExampleMaket from './components/exampleMaket/ExampleMaket';
 import generateShadeColor from './helpers/generateShadeColor';
 import i18next from 'i18next';
@@ -107,9 +107,7 @@ function App() {
       </section>
       <section className='section-maket'>
         <ExampleMaket 
-          extraColors = {extraColors}>
-          
-        </ExampleMaket>
+          extraColors = {extraColors}></ExampleMaket>
       </section>
 
 

@@ -19,5 +19,10 @@
   }
   
   .color-cell:hover{
-    transform: scale(1.05)
+    transform: scale(1.05);
+    border-radius: 5px;
+  }
+
+  .js-code{
+    height: 150px;
   }

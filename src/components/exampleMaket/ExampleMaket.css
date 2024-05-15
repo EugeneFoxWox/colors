@@ -21,7 +21,7 @@
     gap: 10px;
 }
 
-input[type='radio'] {
+.radio-block input[type='radio'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

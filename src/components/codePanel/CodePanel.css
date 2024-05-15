@@ -7,18 +7,24 @@
   width: 850px;
   gap: 10px;
   margin-bottom: 50px;
+ 
 
 }
+
 
 .color-shade{
   display: flex;
   font-size:small;
-  background-color: rgb(40, 56, 56);
+  background-color: var(--light-pl-color);
   padding: 10px;
   align-items: center;
   width: 360px;
   border-radius: 5px;
   gap: 10px
+}
+
+.color-shade.dark-theme{
+  background-color: var(--dark-pl-color);
 }
 
 .color-cell{

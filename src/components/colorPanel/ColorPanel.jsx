@@ -7,7 +7,8 @@ import generateNeighboursColor from "../../helpers/generatePalette/generateNeigh
 import ColorPicker from '../colorPicker/ColorPicker';
 import { useTranslation } from 'react-i18next';
 
-function ColorPanel({colors, setColors}) {
+
+function ColorPanel({colors, setColors, theme}) {
 
   const { t } = useTranslation();
 
@@ -44,19 +45,21 @@ function ColorPanel({colors, setColors}) {
     <div className='color-generate-box'>
       <section className='section-palette'>
         <div className='select-palette'>
-           <input className="radio-palette-selection"
+          
+          <input className="radio-palette-selection random"
              type="radio" id="random"
              name="palette-selection"
              checked={selectedOption == 'random'}
-             onChange={handleRadioChange} />
-
-           <input className="radio-palette-selection"
+             onChange={handleRadioChange}
+             />
+          
+           <input className="radio-palette-selection contrast"
              type="radio" id="contrast"
              name="palette-selection"
              checked={selectedOption === 'contrast'}
              onChange={handleRadioChange} />
 
-           <input className="radio-palette-selection"
+           <input className="radio-palette-selection neighbours"
              type="radio" id="neighbours"
              name="palette-selection"
              checked={selectedOption === 'neighbours'}

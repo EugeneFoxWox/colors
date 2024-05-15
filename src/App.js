@@ -92,14 +92,14 @@ function App() {
         <div className='main-block-select'>
           <div className='palitre'>
            
-            <ColorPanel colors={colors} setColors={setColors}></ColorPanel>
+            <ColorPanel colors={colors} setColors={setColors} theme={theme}></ColorPanel>
             
           </div>
 
         </div>
 
         <div className='collection'>
-          <CodePanel extraColors={extraColors}></CodePanel>
+          <CodePanel extraColors={extraColors} theme={theme}></CodePanel>
         </div>
 
       </section>

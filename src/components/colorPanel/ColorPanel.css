@@ -1,16 +1,39 @@
+
+
+
 input[type='radio'].radio-palette-selection { 
+    border: 2px #ffffff solid;
     border-radius: 8px;
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+    
+}
+
+input[type='radio'].radio-palette-selection:checked {
+    border: 3px solid;
+
+}
+
+
+input[type="radio"].random {
+    background: url("../../img/random.svg") no-repeat;
+}
+
+input[type="radio"].contrast {
+    background: url("../../img/contrast.svg") no-repeat;
+}
+
+input[type="radio"].neighbours {
+    background: url("../../img/neighbours.svg") no-repeat;
 }
 
 .color-generate-box{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
 
 }
 
@@ -27,8 +50,12 @@ input[type='radio'].radio-palette-selection {
     flex-direction: row;
 }
 
+
+
 .section-picker{
     min-width: 300px;
+    display: flex;
+    align-items: center;
 }
 
 .color-panel{

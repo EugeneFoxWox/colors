@@ -2,7 +2,7 @@ import "./ExampleMaket.css"
 function ExampleMaket({extraColors}) {
 
     return(
-    <div className="maket" style={{background: extraColors[3].light}}>
+    <div className="maket">
         <div className="header" style={{background: extraColors[0].normal}}>
             <h1>Заголовок уровня 1</h1>
         </div>

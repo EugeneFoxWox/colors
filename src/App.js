@@ -1,8 +1,8 @@
 import ColorPanel from './components/colorPanel/ColorPanel';
-import toast from 'react-hot-toast';
+
 import { useEffect, useState } from 'react';
 import "react-color-palette/dist/css/rcp.css";
-import { createContext, useContext } from 'react';
+
 import './App.css';
 
 import CodePanel from './components/codePanel/CodePanel';
@@ -25,6 +25,7 @@ function App() {
   let extraColors = Object.entries(colors).map(([name, hex]) => {
       return(
         {
+          name,
           light: generateShadeColor(hex, 20),
           normal: hex ,
           dark: generateShadeColor(hex, -20)
@@ -32,14 +33,10 @@ function App() {
       )
   }) 
  
-    
-    
-  
+
   const [theme, setTheme] = useState('light');
   const [lng, setLng] = useState('ru');
   const [tab, setTab] = useState('');
-
-  
 
   
   const { t } = useTranslation();
@@ -94,6 +91,7 @@ function App() {
       <section className='select-color'>
         <div className='main-block-select'>
           <div className='palitre'>
+           
             <ColorPanel colors={colors} setColors={setColors}></ColorPanel>
             
           </div>

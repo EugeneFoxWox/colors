@@ -3,7 +3,10 @@
   --light-font-color: #000;
   --dark-bg-color: #1b1824;
   --dark-font-color: #eee;
+  --dark-js-color: #09090a;
+  --light-js-color: #bed1d8;
 }
+
 body {
   background-color: var(--light-bg-color);
   color: var(--light-font-color);
@@ -13,8 +16,12 @@ button {
   border: none;
   border-radius: 10%;
   background-color: rgb(53, 37, 155);
-  color: #d0f2ff;
+  color: var(--dark-font-color);
   cursor: pointer;
+}
+
+button.App.dark-theme{
+  color: var(--light-font-color);
 }
 
 .App.dark-theme {
@@ -58,6 +65,12 @@ button {
 .main-block-select{
   display: flex;
   flex-direction: row;
+}
+
+.radio-palette-selection{
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
 }
 
 .palitre{

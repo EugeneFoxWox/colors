@@ -32,7 +32,11 @@ function CodePanel({extraColors}) {
                <p>{extra.dark}</p>
             </div>
         </div>
-         <code id= 'js-code' className='js-code'>{`/nprimary:`}</code>
+         <code id= 'js-code' className='js-code'>
+            {`{\n\t--${extra.name}-light: ${extra.light};
+            \n\t--${extra.name}-normal: ${extra.normal};
+            \n\t--${extra.name}-dark: ${extra.dark};\n}`}
+         </code>
          
          </div>
         

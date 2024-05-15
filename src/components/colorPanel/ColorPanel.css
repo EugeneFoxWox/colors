@@ -1,3 +1,11 @@
+input[type='radio'].radio-palette-selection { 
+    border-radius: 8px;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 .color-generate-box{
     display: flex;
     flex-direction: row;
@@ -6,11 +14,17 @@
 
 }
 
-.section-pallete{
+.section-palette{
     min-width: 300px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    gap: 10px
+    gap: 13px
+}
+
+.select-palette{
+    display: flex;
+    flex-direction: row;
 }
 
 .section-picker{

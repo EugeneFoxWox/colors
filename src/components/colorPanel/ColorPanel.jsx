@@ -1,5 +1,5 @@
 import './ColorPanel.css'
-import { useState } from 'react';
+import { useState, useEffect, useRef  } from 'react';
 import cn from 'classnames'
 import generateRandomColor from "../../helpers/generatePalette/generateRandomColor";
 import generateContrastColor from "../../helpers/generatePalette/generateContrastColor";
@@ -8,16 +8,22 @@ import ColorPicker from '../colorPicker/ColorPicker';
 import { useTranslation } from 'react-i18next';
 
 
+
 function ColorPanel({colors, setColors, theme}) {
 
   const { t } = useTranslation();
 
   const [selectedColor, setSelectedColor] = useState(null)
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState('start');
+ 
+  const ref = useRef();
 
   const handleChangeColor = (color) => {
     setColors({ ...colors, [selectedColor]: color.hex })
   }
+
+  
+  
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.id);
   };
@@ -26,30 +32,44 @@ function ColorPanel({colors, setColors, theme}) {
     switch(selectedOption){
       case 'random':
         setColors(generateRandomColor(colors));
-        console.log(colors);
+        
         break;
       case 'contrast':
         setColors(generateContrastColor(colors));
-        console.log(colors);
+        
         break;
-        case 'neighbours':
+      case 'neighbours':
           setColors(generateNeighboursColor(colors));
-          console.log(colors);
+          
           break;
     }
     
   }
 
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setSelectedColor(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+ 
 
   return (
     <div className='color-generate-box'>
       <section className='section-palette'>
+        <h1>{t(`color-panel.select-palette.${selectedOption}`)}</h1>
         <div className='select-palette'>
           
           <input className="radio-palette-selection random"
              type="radio" id="random"
              name="palette-selection"
-             checked={selectedOption == 'random'}
+             checked={selectedOption === 'random'}
              onChange={handleRadioChange}
              />
           
@@ -87,15 +107,23 @@ function ColorPanel({colors, setColors, theme}) {
         
 
       </div>
-      <button className='button-generate' onClick={handleRandomAll}>{t('bt-generate')}</button>
+      <button className='button-generate' onClick={handleRandomAll}>{t('color-panel.bt-generate')}</button>
       </section>
-      <section className='section-picker'>
-        {selectedColor && (
+      <section className='section-picker' >
+        <div ref={ref}>
+        {selectedColor &&(<>
+          <h2>{t('color-panel.color-picker')}</h2>
           <ColorPicker selectColor={colors[selectedColor]} changeColor={handleChangeColor} />
+        </>
+          
         )}
+        </div>
+       
+        
       </section>
     </div>
       )
 }
+
 
       export default ColorPanel;

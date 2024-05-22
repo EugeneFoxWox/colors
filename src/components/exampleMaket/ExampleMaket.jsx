@@ -1,4 +1,9 @@
 import "./ExampleMaket.css"
+
+/*<input type="checkbox" name="languages" value="HTML"/>  
+                <input type="checkbox" name="languages" value="CSS"/>
+                <input type="checkbox" name="languages" value="JS"/>*/
+                
 function ExampleMaket({extraColors}) {
 
     return(
@@ -29,10 +34,17 @@ function ExampleMaket({extraColors}) {
                     <li>Пункт 1</li>
                     <li>Пункт 2</li>
                 </ul>
+                
             </nav>
         </div>
         <div>
         <code>const a = 123</code>
+        </div>
+        <div className="input-block">
+            <input type="text" id="name" name="name" style={{background: extraColors[3].dark}}/>
+            
+                
+            
         </div>
         </div>
     </div>

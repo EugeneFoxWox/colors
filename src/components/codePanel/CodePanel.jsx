@@ -5,12 +5,12 @@ function CodePanel({extraColors, theme}) {
 
    const handleCopyToClipboard = (color) => {
       navigator.clipboard.writeText(color)
-      toast.success('Успешно скопировано ' + color)
+      toast.success('Успешно скопировано ' + color + '!')
     }
 
     const handleCopyJSToClipboard = (extra) => {
       navigator.clipboard.writeText(document.getElementById(extra.name).innerText)
-      toast.success('Успешно скопировано!')
+      toast.success('Успешно скопировано '+ extra.name + '!')
     }
       
         return <div className='shade-palette'> 

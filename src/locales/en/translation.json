@@ -1,6 +1,22 @@
 {
-    "lng": "ENG",
-    "theme": "Theme",
-    "bt-save": "SAVE",
-    "bt-generate": "GENERATE"
+    "app":{
+        "lng": "ENG",
+        "theme": "Theme",
+        "bt-save": "SAVE"
+    },
+    "color-panel":{
+
+        "select-palette":{
+            "start": "Select mode",
+            "random": "Random",
+            "contrast": "Contrast",
+            "neighbours": "Neighbours"
+        },
+
+        "bt-generate": "GENERATE",
+        "color-picker": "Redaction"
+    },
+    "example": {
+        
+    }
 }

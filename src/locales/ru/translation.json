@@ -1,7 +1,27 @@
 { 
-    "lng": "РУС",
-    "theme": "Тема",
-    "bt-save": "СОХРАНИТЬ",
-    "bt-generate": "СГЕНЕРИРОВАТЬ"
+    "app":{
+        "lng": "РУС",
+        "theme": "Тема",
+        "bt-save": "СОХРАНИТЬ"
+    },
+    "color-panel":{
+
+        "select-palette":{
+            "start": "Выберите режим",
+            "random": "Случайность",
+            "contrast": "Контраст",
+            "neighbours": "Соседи"
+        },
+
+        "bt-generate": "СГЕНЕРИРОВАТЬ",
+        "color-picker": "Редактирование"
+    },
+    "example": {
+        
+    }
+    
+    
+    
+    
     
 }

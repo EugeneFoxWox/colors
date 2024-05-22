@@ -6,14 +6,16 @@ import "react-color-palette/dist/css/rcp.css";
 import './App.css';
 
 import CodePanel from './components/codePanel/CodePanel';
-import { useTranslation } from 'react-i18next';
+
 import logo from './img/logo.png';
 import ExampleMaket from './components/exampleMaket/ExampleMaket';
 import generateShadeColor from './helpers/generateShadeColor';
+import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
 
 function App() {
+  const [data, setData] = useState({});
   const [colors, setColors] = useState({
     primary: '#1c3da0',
     secondary: '#b73333',
@@ -42,17 +44,25 @@ function App() {
   const { t } = useTranslation();
   
 
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
     }
+
+    fetch('https://hnapi.containers.cloud.ru/api/order?name=Кострома')
+    .then(response => response.json())
+    .then(data => setData(data))
+    .catch(error => console.error(error));
+    
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
+    console.log(data);
     
   };
 
@@ -73,19 +83,19 @@ function App() {
         </div>
 
         <div>
-          <div className='switch-title'>{t('lng')}</div>
+          <div className='switch-title'>{t('app.lng')}</div>
           <div class={lng === 'en' ? "switch-btn switch-on::after" : "switch-btn switch-on"} style={{background: colors.secondary}}
         onClick={changeLng}></div>
         </div>
 
         <div>
-          <div className='switch-title' >{t('theme')}</div>
+          <div className='switch-title' >{t('app.theme')}</div>
           <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"}
            onClick={toggleTheme}
            style={{background: colors.primary}}></div>
         </div>
 
-        <button>{t('bt-save')}</button>
+        <button>{t('app.bt-save')}</button>
       </header>
 
       <section className='select-color'>
@@ -114,4 +124,6 @@ function App() {
 }
 export default App;
 
+//попробовать бэк или генератор ссылок цветов
+//коллекция палитр
 

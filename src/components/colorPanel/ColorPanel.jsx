@@ -1,4 +1,5 @@
 import './ColorPanel.css'
+import toast from 'react-hot-toast';
 import { useState, useEffect, useRef  } from 'react';
 import cn from 'classnames'
 import generateRandomColor from "../../helpers/generatePalette/generateRandomColor";
@@ -9,13 +10,11 @@ import { useTranslation } from 'react-i18next';
 
 
 
-function ColorPanel({colors, setColors, theme}) {
+function ColorPanel({colors, setColors}) {
 
   const { t } = useTranslation();
-
   const [selectedColor, setSelectedColor] = useState(null)
   const [selectedOption, setSelectedOption] = useState('start');
- 
   const ref = useRef();
 
   const handleChangeColor = (color) => {
@@ -23,27 +22,18 @@ function ColorPanel({colors, setColors, theme}) {
   }
 
   
-  
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.id);
   };
 
   const handleRandomAll = () => {
-    switch(selectedOption){
-      case 'random':
-        setColors(generateRandomColor(colors));
-        
-        break;
-      case 'contrast':
-        setColors(generateContrastColor(colors));
-        
-        break;
-      case 'neighbours':
-          setColors(generateNeighboursColor(colors));
-          
-          break;
+    const generateBySelectedOption = {
+      random: generateRandomColor,
+      contrast: generateContrastColor,
+      neighbours: generateNeighboursColor
     }
-    
+    const generateColor = generateBySelectedOption[selectedOption]
+    setColors(generateColor(colors))
   }
 
   const handleClickOutside = (event) => {
@@ -51,6 +41,11 @@ function ColorPanel({colors, setColors, theme}) {
       setSelectedColor(null);
     }
   };
+
+  const handleCopyShare = () => {
+    navigator.clipboard.writeText(window.location.href)
+    toast.success('Успешно скопировано!')
+  }
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -104,10 +99,9 @@ function ColorPanel({colors, setColors, theme}) {
 
         ))}
 
-        
-
       </div>
       <button className='button-generate' onClick={handleRandomAll}>{t('color-panel.bt-generate')}</button>
+      <button onClick={handleCopyShare}>ДЕЛИСЬ</button>
       </section>
       <section className='section-picker' >
         <div ref={ref}>

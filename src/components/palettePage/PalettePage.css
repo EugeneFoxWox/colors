@@ -1,0 +1,125 @@
+body {
+  background-color: var(--light-bg-color);
+  color: var(--light-font-color);
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(53, 37, 155);
+  color: var(--dark-font-color);
+  cursor: pointer;
+  padding: 3px 5px;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button.App.dark-theme {
+  color: var(--light-font-color);
+}
+
+.App.dark-theme {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-font-color);
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  gap: 10px;
+  padding: 5px;
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.section-select-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  margin-left: 55px;
+  width: 750px;
+  gap: 20px;
+}
+
+.main-block-select {
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-palette-selection {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.palitre {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.switch-btn {
+  display: inline-block;
+  width: 46px; /* ширина */
+  height: 26px; /* высота */
+  border-radius: 19px;
+  background-size: 180px 100%;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  transition-duration: 300ms;
+}
+.switch-btn::after {
+  content: '';
+  height: 15px;
+  width: 15px;
+  border-radius: 17px;
+  background: #fff; /* цвет кнопки */
+  top: 6px;
+  left: 25px;
+  transition-duration: 300ms; /* анимация */
+  position: absolute;
+  z-index: 1;
+}
+.switch-on {
+  background-position-x: -100px;
+}
+.switch-on::after {
+  left: 3px;
+}
+
+.color-picker {
+  height: 100px;
+  width: 300px;
+}
+
+.section-maket {
+  margin-top: 80px;
+  margin-right: 50px;
+}
+
+.code-panel {
+  display: flex;
+}

@@ -1,27 +1,19 @@
-{ 
-    "app":{
-        "lng": "РУС",
-        "theme": "Тема",
-        "bt-save": "СОХРАНИТЬ"
+{
+  "app": {
+    "lng": "РУС",
+    "theme": "Тема",
+    "bt-save": "СОХРАНИТЬ"
+  },
+  "color-panel": {
+    "select-palette": {
+      "start": "Выберите режим",
+      "random": "Случайность",
+      "contrast": "Контраст",
+      "neighbours": "Соседи"
     },
-    "color-panel":{
 
-        "select-palette":{
-            "start": "Выберите режим",
-            "random": "Случайность",
-            "contrast": "Контраст",
-            "neighbours": "Соседи"
-        },
-
-        "bt-generate": "СГЕНЕРИРОВАТЬ",
-        "color-picker": "Редактирование"
-    },
-    "example": {
-        
-    }
-    
-    
-    
-    
-    
+    "bt-generate": "СГЕНЕРИРОВАТЬ",
+    "color-picker": "Редактирование"
+  },
+  "example": {}
 }

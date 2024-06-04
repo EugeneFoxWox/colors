@@ -20,12 +20,7 @@ button {
   gap: 10px;
   align-items: center;
 }
-.button-block {
-  display: flex;
-  gap: 10px;
-}
-
-.radio-block {
+.group{
   display: flex;
   gap: 10px;
 }
@@ -55,14 +50,77 @@ input[type='radio']:checked {
   border-radius: 5px;
 }
 
+.button-block{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .input-block {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.input-block input[type='checkbox'] {
-  background-color: aqua;
-  height: 5px;
-  color: blue;
+
+.input{
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.467;
+  padding: 8px 8px;
+  height: 30px;
+  border-radius: 6px;
+  box-shadow: none;
+  transition: border .25s linear, color .25s linear;
+  outline: none;
+}
+
+.switch{
+  display: inline-block;
+  width: 46px; /* ширина */
+  height: 26px; /* высота */
+  border-radius: 19px;
+  background-size: 180px 100%;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  transition-duration: 300ms;
+}
+.switch::after {
+  content: '';
+  height: 15px;
+  width: 15px;
+  border-radius: 17px;
+  background: #fff; 
+  top: 6px;
+  left: 25px;
+  transition-duration: 300ms; 
+  position: absolute;
+  z-index: 1;
+}
+.switch-on {
+  background-position-x: -100px;
+}
+.switch-on::after {
+  left: 3px;
+}
+
+.switch-off{
+  background-color: rgb(137, 137, 137);
+}
+
+.progress-block{
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-bar{
+  width: 300px;
+  height: 15px;
+  font-size: small;
+
 }

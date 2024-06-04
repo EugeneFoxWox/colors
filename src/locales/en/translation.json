@@ -2,7 +2,12 @@
   "app": {
     "lng": "ENG",
     "theme": "Theme",
-    "bt-save": "SAVE"
+    "bt-save": "SAVE",
+    "bt-collection": "COLLECTION",
+    "bt-close": "CLOSE",
+    "copy": "Successfully copied ",
+    "save": "Saved!",
+    "delete": "Deleted"
   },
   "color-panel": {
     "select-palette": {
@@ -11,9 +16,15 @@
       "contrast": "Contrast",
       "neighbours": "Neighbours"
     },
-
+    "bt-share": "Share",
     "bt-generate": "GENERATE",
     "color-picker": "Redaction"
   },
-  "example": {}
+  "example": {
+    "title": "Title",
+    "p": "This element contains plain text.",
+    "button": "Click me",
+    "block": "This is a block element that can contain other elements.",
+    "dot": "List item"
+  }
 }

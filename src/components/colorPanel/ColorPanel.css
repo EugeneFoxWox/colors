@@ -41,7 +41,7 @@ input[type='radio'].neighbours {
 .select-palette {
   display: flex;
   flex-direction: row;
-  background-color: rgb(172, 172, 177);
+  background-color: rgba(172, 172, 177, 0.516);
   padding: 3px 8px;
   border-radius: 5px;
 }
@@ -82,7 +82,21 @@ input[type='radio'].neighbours {
   height: 100px;
   width: 300px;
 }
+.button-generate.disabled {
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+  background-color: rgb(110, 115, 150);
+  color: rgb(66, 70, 73);
+  padding: 30px;
+  height: 100px;
+  width: 300px;
+}
 
 .button-generate:hover {
   transform: scale(1.1);
 }
+
+.button-generate.disabled:hover {
+  transform: scale(0.9);
+}
+

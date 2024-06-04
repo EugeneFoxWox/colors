@@ -44,7 +44,7 @@ function ColorPanel({colors, setColors}) {
 
   const handleCopyShare = () => {
     navigator.clipboard.writeText(window.location.href)
-    toast.success('Успешно скопировано!')
+    toast.success(t('app.copy'))
   }
 
   useEffect(() => {
@@ -100,8 +100,8 @@ function ColorPanel({colors, setColors}) {
         ))}
 
       </div>
-      <button className='button-generate' onClick={handleRandomAll}>{t('color-panel.bt-generate')}</button>
-      <button onClick={handleCopyShare}>ДЕЛИСЬ</button>
+      <button className={selectedOption === 'start'? 'button-generate disabled' : 'button-generate'} disabled={selectedOption == 'start'} onClick={handleRandomAll}>{t('color-panel.bt-generate')}</button>
+      <button onClick={handleCopyShare}>{t('color-panel.bt-share')}</button>
       </section>
       <section className='section-picker' >
         <div ref={ref}>

@@ -1,16 +1,19 @@
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import './CodePanel.css'
 
 function CodePanel({extraColors, theme}) {
 
+   const { t } = useTranslation();
+
    const handleCopyToClipboard = (color) => {
       navigator.clipboard.writeText(color)
-      toast.success('Успешно скопировано ' + color + '!')
+      toast.success(t('app.copy') + color + '!')
     }
 
     const handleCopyJSToClipboard = (extra) => {
       navigator.clipboard.writeText(document.getElementById(extra.name).innerText)
-      toast.success('Успешно скопировано '+ extra.name + '!')
+      toast.success(t('app.copy') + extra.name + '!')
     }
       
         return <div className='shade-palette'> 

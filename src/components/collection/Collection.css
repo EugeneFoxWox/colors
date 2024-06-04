@@ -1,12 +1,19 @@
 .collection {
   padding: 5px;
   color: white;
+  text-align: center;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #282c34;
 }
+
+.collection button{
+  color: var(--dark-font-color);
+  border: none;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -37,4 +44,13 @@
 .item-color {
   height: 80px;
   width: 20px;
+}
+
+.button-delete{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 50px;
 }

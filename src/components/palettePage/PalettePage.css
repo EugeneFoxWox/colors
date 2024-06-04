@@ -4,10 +4,9 @@ body {
 }
 
 button {
-  border: none;
+  border: 1px solid white;
   border-radius: 5px;
-  background-color: rgb(53, 37, 155);
-  color: var(--dark-font-color);
+  background-color: rgba(53, 37, 155, 0.33);
   cursor: pointer;
   padding: 3px 5px;
 }
@@ -18,9 +17,12 @@ input {
   appearance: none;
 }
 
-button.App.dark-theme {
-  color: var(--light-font-color);
+.App.dark-theme button{
+  color: var(--dark-font-color);
 }
+
+
+
 
 .App.dark-theme {
   background-color: var(--dark-bg-color);
@@ -37,12 +39,19 @@ button.App.dark-theme {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
+  width: 130px;
   font-size: calc(10px + 2vmin);
   color: white;
   gap: 10px;
   padding: 5px;
 }
+
+.App-header button{
+  height: 30px;
+  padding: 2px 3px;
+  color: var(--dark-font-color);
+}
+
 .logo {
   width: 90px;
   height: 90px;

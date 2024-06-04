@@ -3,6 +3,7 @@ import Collection from './../../components/collection/Collection';
 import ColorPanel from './../../components/colorPanel/ColorPanel';
 import logo from './../../img/logo.png';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import "react-color-palette/dist/css/rcp.css";
 import ExampleMaket from './../../components/exampleMaket/ExampleMaket';
 import generateShadeColor from './../../helpers/generateShadeColor';
@@ -12,6 +13,7 @@ import createPalette from './../../api/createPalette';
 import getPaletteById from './../../api/getPaletteById';
 import { useParams} from 'react-router';
 import "./PalettePage.css"
+
 
 function PalettePage(){
 
@@ -83,11 +85,12 @@ function PalettePage(){
         setCollection([{colors}, ...collection]);
         const result = await createPalette(colors);
         setIds([result.id, ...ids]);
+        toast.success(t('app.save'));
       }
     
       const deletePalette = (id) => {
         setIds(ids.filter(item => item != id))
-      
+        toast.error(t('app.delete'), {icon: '🗑️'});
       }
     
       const toggleTheme = () => {
@@ -116,8 +119,7 @@ function PalettePage(){
       const selectPalette = (id, colors) => {
         setSelectedPalette(id);
         setColors(colors)
-        console.log(id)
-        
+        window.history.pushState(null, null, `http://localhost:3000/palettes/${id}`);
       }
 
     return(
@@ -127,21 +129,22 @@ function PalettePage(){
           <img className='logo' src={logo} alt='' style={{ background: colors.primary,}}></img>
         </div>
 
-        <div>
+        
           <div className='switch-title'>{t('app.lng')}</div>
-          <div class={lng === 'en' ? "switch-btn switch-on::after" : "switch-btn switch-on"} style={{background: colors.secondary}}
+          <div class={lng === 'en' ? "switch-btn switch-on::after" : "switch-btn switch-on"} 
+          style={{background: lng === 'en' ? colors.secondary: colors.quaternary}}
         onClick={changeLng}></div>
-        </div>
+        
 
-        <div>
+        
           <div className='switch-title' >{t('app.theme')}</div>
           <div class={theme === 'dark' ? "switch-btn switch-on::after" : "switch-btn switch-on"}
            onClick={toggleTheme}
-           style={{background: colors.primary}}></div>
-        </div>
+           style={{background: theme === 'dark' ? colors.primary: colors.tertiary}}></div>
+       
 
         <button onClick={() => saveCollection(colors)}>{t('app.bt-save')}</button>
-        <button onClick={openCollection}>Коллекция</button>
+        <button onClick={openCollection}>{t('app.bt-collection')}</button>
       </header>
       <Collection isOpen={open}
         closeCollection={closeCollection}

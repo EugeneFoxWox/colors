@@ -1,51 +1,53 @@
-.shade-palette {
+.shade-palette{
   display: flex;
   max-width: 1000px;
   flex-wrap: wrap;
   width: 850px;
   gap: 10px;
   margin-bottom: 50px;
+ 
+
 }
 
-.color-shade {
+.color-shade{
   display: flex;
-  font-size: small;
+  font-size:small;
   background-color: var(--light-pl-color);
   padding: 10px;
   align-items: center;
   width: 360px;
   border-radius: 5px;
-  gap: 10px;
+  gap: 10px
 }
 
-.color-shade.dark-theme {
+.color-shade.dark-theme{
   background-color: var(--dark-pl-color);
 }
 
-.color-cell {
-  cursor: pointer;
-  transition: transform 0.5s ease;
-  width: 45px;
-  height: 45px;
-  margin-bottom: 3px;
-}
+.color-cell{
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 3px;
+  }
+  
+  .color-cell:hover{
+    transform: scale(1.05);
+    border-radius: 5px;
+  }
 
-.color-cell:hover {
-  transform: scale(1.05);
-  border-radius: 5px;
-}
+  .js-code{
+    font-size:small;
+    line-height: 2ch;
+    padding: 10px;
+    height: 120px;
+    white-space: pre;
+    background-color: var(--light-js-color);
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-.js-code {
-  font-size: small;
-  line-height: 2ch;
-  padding: 10px;
-  height: 120px;
-  white-space: pre;
-  background-color: var(--light-js-color);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.js-code.dark-theme {
-  background-color: var(--dark-js-color);
-}
+  .js-code.dark-theme{
+    background-color: var(--dark-js-color);
+  }

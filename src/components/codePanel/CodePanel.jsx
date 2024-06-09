@@ -44,9 +44,7 @@ function CodePanel({extraColors, theme}) {
             \n\t--${extra.name}-dark: ${extra.dark};\n}`}
          </code>
          
-         </div>
-        
-        
+         </div> 
         
       }
     )}

@@ -72,6 +72,9 @@ function PalettePage(){
       useEffect(() => {
         async function fetchPalette(){
           const result = await getPaletteById(ids);
+          if(!result){
+            return
+          }
           setCollection(result);
         }
         fetchPalette();

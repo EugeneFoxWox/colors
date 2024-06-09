@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useParams, Navigate } from 'rea
 
 function App() {
   return (
-    <Router>
+    <Router basename='/colors'>
       <Routes>
         <Route path='/' element={<Navigate to={'/palettes'}></Navigate>}></Route>
         <Route path='/palettes' element={<PalettePage />}></Route>

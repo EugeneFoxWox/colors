@@ -11,8 +11,9 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import createPalette from './../../api/createPalette';
 import getPaletteById from './../../api/getPaletteById';
-import { useParams} from 'react-router';
-import "./PalettePage.css"
+import { useParams } from 'react-router';
+import "./PalettePage.css";
+import { getIdsFromLocalStorage } from './../../helpers/getIdsFromLocalStorage'
 
 
 function PalettePage(){
@@ -24,7 +25,7 @@ function PalettePage(){
     const [collection, setCollection] = useState([]);
     const [selectedPalette, setSelectedPalette] = useState(null);
     const { t } = useTranslation();
-    const [ids, setIds] = useState(() => localStorage.getItem("ids").split(","));
+    const [ids, setIds] = useState(() => getIdsFromLocalStorage());
     let { paletteId } = useParams();
 
     const [colors, setColors] = useState({

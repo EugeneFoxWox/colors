@@ -1,5 +1,5 @@
 async function createPalette(collection) {
-  const response = await fetch(`http://localhost:8080/api/palettes`, {
+  const response = await fetch(`https://back-colors.containers.cloud.ru/api/palettes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

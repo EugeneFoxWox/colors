@@ -1,6 +1,6 @@
 async function getPaletteById(ids) {
   try {
-    const response = await fetch(`http://localhost:8080/api/palettes?ids=${ids.join(',')}`, {
+    const response = await fetch(`https://back-colors.containers.cloud.ru/api/palettes?ids=${ids.join(',')}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

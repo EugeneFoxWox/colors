@@ -14,11 +14,12 @@ import getPaletteById from './../../api/getPaletteById';
 import { useParams } from 'react-router';
 import "./PalettePage.css";
 import { getIdsFromLocalStorage } from './../../helpers/getIdsFromLocalStorage'
+import { useNavigate } from "react-router-dom";
 
 
 function PalettePage(){
 
-    const [data, setData] = useState({});
+
     const [theme, setTheme] = useState('light');
     const [lng, setLng] = useState('ru');
     const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ function PalettePage(){
     const { t } = useTranslation();
     const [ids, setIds] = useState(() => getIdsFromLocalStorage());
     let { paletteId } = useParams();
+    const navigate = useNavigate();
 
     const [colors, setColors] = useState({
         primary: '#1c3da0',
@@ -86,7 +88,7 @@ function PalettePage(){
     
       const saveCollection = async function(colors) {
     
-        setCollection([{colors}, ...collection]);
+        
         const result = await createPalette(colors);
         setIds([result.id, ...ids]);
         toast.success(t('app.save'));
@@ -123,8 +125,9 @@ function PalettePage(){
       const selectPalette = (id, colors) => {
         setSelectedPalette(id);
         setColors(colors)
-        window.history.pushState(null, null, `http://localhost:3000/palettes/${id}`);
+        navigate(`/palettes/${id}`);
       }
+
 
     return(
         <div className={theme === 'dark' ? 'dark-theme App' : 'App'}>
